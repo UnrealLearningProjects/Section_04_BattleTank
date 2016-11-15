@@ -17,8 +17,38 @@ void ATankPlayerController::BeginPlay()
 	}
 }
 
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	
+	AimAtReticule();
+}
+
+
 
 ATank* ATankPlayerController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
+}
+
+
+
+void ATankPlayerController::AimAtReticule()
+{
+	if (!GetControlledTank()){ return; }
+
+	FVector HitLocation; // OUT Parameter
+	if (GetSightRayHitLocation(HitLocation))
+	{
+
+	}
+	// Get world location of linetrace through crosshair
+	//it it hits landscape
+		//tell controlled tank to aim at this point
+}
+
+bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
+{
+	HitLocation = FVector(1.0);
+	return false;
 }
