@@ -14,6 +14,9 @@ class MYBATTLETANK_API ATank : public APawn
 public:
 	void AimAt(FVector Hitlocation);
 
+	UFUNCTION(Blueprintcallable, Category = Setup)
+	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
@@ -30,6 +33,6 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-	
+	UStaticMeshComponent* Barrel = nullptr;
 	
 };
