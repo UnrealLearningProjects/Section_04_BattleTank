@@ -29,12 +29,22 @@ void AMyTankAIController::BeginPlay()
 	}
 }
 
+
+
 ATank * AMyTankAIController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
 }
 
+
+
 ATank * AMyTankAIController::GetPlayerTank() const
 {
 	return Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
+}
+
+void AMyTankAIController::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
 }
