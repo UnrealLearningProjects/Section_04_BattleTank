@@ -47,6 +47,11 @@ void ATank::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 
 }
 
+void ATank::Fire()
+{
+	UE_LOG(LogTemp, Warning, TEXT("FIRE!"))
+}
+
 
 void ATank::AimAt(FVector HitLocation)
 {
