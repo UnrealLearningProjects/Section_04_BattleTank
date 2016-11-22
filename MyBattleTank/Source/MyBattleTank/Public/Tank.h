@@ -46,11 +46,14 @@ private:
 	UStaticMeshComponent* Barrel = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float FiringSpeed = 100000;
+	float FiringSpeed = 1000000;
 
 	UPROPERTY(EditAnywhere, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
 	// Lokal Barrel reference to spawn projectile from
 	UTankBarrel* LokalBarrel = nullptr;
+
+	float ReloadTimeInSeconds = 2;
+	double LastFireTime = 0;
 };

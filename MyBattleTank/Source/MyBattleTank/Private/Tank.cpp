@@ -51,13 +51,15 @@ void ATank::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 
 void ATank::Fire()
 {
-	UE_LOG(LogTemp, Warning, TEXT("FIRE!"))
-		if (!LokalBarrel){ return; }
-
-	// spawn projectile at projectile socket on Barrel
-	
-	auto CurrentProjectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, LokalBarrel->GetSocketLocation(FName("Projectile")), LokalBarrel->GetSocketRotation(FName("Projectile")));
-	CurrentProjectile->LaunchProjectile(FiringSpeed);
+	bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
+	if (LokalBarrel && isReloaded) 
+	{
+		// spawn projectile at projectile socket on Barrel
+		auto CurrentProjectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, LokalBarrel->GetSocketLocation(FName("Projectile")), LokalBarrel->GetSocketRotation(FName("Projectile")));
+		
+		CurrentProjectile->LaunchProjectile(FiringSpeed);
+		LastFireTime = FPlatformTime::Seconds();
+	}
 }
 
 
