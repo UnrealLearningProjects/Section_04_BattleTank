@@ -6,6 +6,7 @@
 #include "Projectile.h"
 #include "TankAimingComponent.h"
 #include "Tank.h"
+#include "TankMovementComponent.h"
 
 
 void ATank::SetBarrelReference(UTankBarrel * BarrelToSet)
@@ -26,6 +27,7 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = true;
 	
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
+	MovementComponent = CreateDefaultSubobject<UTankMovementComponent>(FName("Movement Component"));
 }
 
 // Called when the game starts or when spawned
@@ -65,6 +67,5 @@ void ATank::Fire()
 
 void ATank::AimAt(FVector HitLocation)
 {
-	TankAimingComponent->AimAt(HitLocation, FiringSpeed);
-	
+	TankAimingComponent->AimAt(HitLocation, FiringSpeed);	
 }
