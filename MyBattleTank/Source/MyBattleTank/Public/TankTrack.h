@@ -17,5 +17,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Input)
 	void SetThrottle(float Throttle);
 	
-	
+	// Max Force per track in newtons
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float TrackMaxDrivingForce = 3500000;
 };

@@ -12,9 +12,10 @@ class MYBATTLETANK_API AProjectile : public AActor
 	GENERATED_BODY()
 	
 private:
-	UProjectileMovementComponent* ProjectileMovement = nullptr;
+	UProjectileMovementComponent *ProjectileMovement = nullptr;
 
 public:	
+	
 	// Sets default values for this actor's properties
 	AProjectile();
 
