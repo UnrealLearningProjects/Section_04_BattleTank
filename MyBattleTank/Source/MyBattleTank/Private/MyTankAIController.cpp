@@ -19,6 +19,8 @@ void AMyTankAIController::Tick(float DeltaSeconds)
 	
 	if (PlayerTank)
 	{
+		MoveToActor(PlayerTank, AcceptanceRadius);
+
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 
 		// Fire

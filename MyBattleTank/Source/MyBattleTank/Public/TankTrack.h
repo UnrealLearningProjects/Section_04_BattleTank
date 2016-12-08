@@ -19,5 +19,5 @@ public:
 	
 	// Max Force per track in newtons
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
-	float TrackMaxDrivingForce = 3500000;
+	float TrackMaxDrivingForce = 85000000;
 };
